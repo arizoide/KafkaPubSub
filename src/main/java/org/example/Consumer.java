@@ -55,7 +55,6 @@ public class Consumer {
             });
         }
 
-        // Adicionando um hook para desligar o executor graciosamente
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             System.out.println("Desligando o executor...");
             executor.shutdown();
@@ -66,8 +65,6 @@ public class Consumer {
             }
         }));
 
-        // Adicione um delay para a demonstração
-        Thread.sleep(10000);
         System.out.println("Processamento concluído. Linhas processadas: " + processedLines.size());
         executor.shutdownNow(); // Força o desligamento
     }
